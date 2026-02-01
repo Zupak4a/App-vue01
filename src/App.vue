@@ -24,6 +24,9 @@
          <li class="nav-item">
           <a class="nav-link" href="/type">Type</a>
         </li>
+                 <li class="nav-item">
+          <a class="nav-link" href="/type_crud">Type</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="/employee">Employee</a>
         </li>
