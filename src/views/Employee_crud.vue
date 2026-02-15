@@ -25,10 +25,12 @@
           <td>{{ employee.full_name }}</td>
           <td>{{ employee.department }}</td>
           <td>{{ employee.salary }}</td>
+          
           <td>
         <span v-if="employee.active == 1">ปกติ</span>
         <span v-else>ลาออก</span>
           </td>
+          
           <td>
             <button class="btn btn-warning btn-sm" @click="openEditModal(employee)">
               แก้ไข
@@ -67,6 +69,7 @@
                 <label class="form-label">เงินเดือน</label>
                 <input v-model="editEmployee.salary" type="number" class="form-control" required>
               </div>
+              
 
               <button type="submit" class="btn btn-success">
                 {{ isEditMode ? "บันทึกการแก้ไข" : "เพิ่มพนักงาน" }}

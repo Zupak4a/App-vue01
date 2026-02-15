@@ -27,12 +27,23 @@
                  <li class="nav-item">
           <a class="nav-link" href="/type_crud">Type</a>
         </li>
-        <li class="nav-item">
+                <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            employee
+          </a>
+          <ul class="dropdown-menu">
+          <li>
           <a class="nav-link" href="/employee">Employee</a>
         </li>
-        <li class="nav-item">
+        <li>
           <a class="nav-link" href="/employee_crud">Employee Crud</a>
         </li>
+                <li>
+          <a class="nav-link" href="/employee_crud_image">Employee img Crud</a>
+        </li>
+          </ul>
+                  </li>
+
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Product
@@ -40,6 +51,7 @@
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="/product">Product</a></li>
             <li><a class="dropdown-item" href="/product_api">Product_api</a></li>
+            <li><a class="dropdown-item" href="/product_crud">Product_crud</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="/show_product">Show Product</a></li>
           </ul>
