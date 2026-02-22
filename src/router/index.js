@@ -5,7 +5,7 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    component: () => import('../views/HomeView.vue')
   },
   {
     path: '/customer',
@@ -35,7 +35,8 @@ const routes = [
   {
     path: '/add_employee',
     name: 'add_employee',
-    component: () => import('../views/Add_employee.vue')
+    component: () => import('../views/Add_employee.vue'),
+    meta: { requiresAuth: true } 
   },
   {
     path: '/product',
@@ -55,7 +56,8 @@ const routes = [
   {
     path: '/customer_crud',
     name: 'customer_crud',
-    component: () => import('../views/Customer_crud.vue')
+    component: () => import('../views/Customer_crud.vue'),
+    meta: { requiresAuth: true } 
   },
   {
     path: '/employee_crud',
@@ -79,6 +81,18 @@ const routes = [
     name: 'employee_crud_image',
    
     component: () => import('../views/employee_crud_image.vue')
+  },
+  {
+    path: '/login',
+    name: 'login',
+   
+    component: () => import('../views/login.vue')
+  },
+  {
+    path: '/show_product_detail',
+    name: 'show_product_detail',
+   
+    component: () => import('../views/show_product_detail.vue')
   }
 
 
@@ -88,5 +102,21 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
+/*✅ ROUTE GUARD */
+router.beforeEach((to, from, next) => {
 
+  const isLoggedIn = localStorage.getItem("adminLogin")
+
+  // ถ้าหน้านั้นต้อง login แต่ยังไม่ login
+  if (to.meta.requiresAuth && !isLoggedIn) {
+    next('/login')
+  } 
+  // ถ้า login แล้วแต่พยายามเข้าหน้า login
+  else if (to.path === '/login' && isLoggedIn) {
+    next('/')   // หรือ dashboard
+  }
+  else {
+    next()
+  }
+})
 export default router
